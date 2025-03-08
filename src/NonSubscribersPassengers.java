@@ -42,9 +42,15 @@ public class NonSubscribersPassengers extends Passenger{
 
     @Override
     public double calcTripCost(double trip_price) {
-        if(discount_coupon){
-            double v = trip_price * 0.1;
+        System.out.println("Original Price: " + trip_price);
+
+        if (discount_coupon) {
+            double discountedPrice = trip_price - (0.1 * trip_price);
+            System.out.println("Discounted Price: " + discountedPrice);
+            return discountedPrice;
         }
+
+        System.out.println("No discount applied.");
         return trip_price;
     }
 

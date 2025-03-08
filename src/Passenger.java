@@ -6,6 +6,8 @@ public abstract class Passenger {
     private double trip_cost;
 
     public Passenger(String name, String id) {
+        this.name=name;
+        this.id=id;
     }
 
     public abstract double calcTripCost(double trip_price);
@@ -54,11 +56,12 @@ public abstract class Passenger {
     }
 
     public void reserv(Car car) throws Exception {
-        if(car.getMax_capacity_per_trip()==0){
-            throw new Exception("Car " + car.getCode() + " no more passengers.");
+        if(car.getMax_capacity_per_trip()<=0){
+            throw new Exception("Car " + car.getCode() + "does not accept more passengers.");
         }
         this.reserved_car = car;
         this.trip_cost = calcTripCost(car.getFixed_route().getTrip_price());
+        car.countCapacity();
     }
 
 }

@@ -12,13 +12,14 @@ public class SubscribersPassengers extends Passenger{
 
     @Override
     public double calcTripCost(double trip_price) {
+        System.out.println("Original Trip Price: " + trip_price);
         return trip_price*50;
     }
 
     @Override
     public void displayInformation() {
 
-        System.out.println("Passenger: " + this.getName() + " (ID: " + this.getId() + ")");
+        System.out.println("Passenger name: " + this.getName() + " ,Passenger ID: " + this.getId()+".");
         if (getReserved_car() != null) {
             System.out.println("Car Code: " + getReserved_car().getCode());
             System.out.println("Route Price: " + getReserved_car().getFixed_route().getTrip_price());

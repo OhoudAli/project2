@@ -55,4 +55,10 @@ public class Car {
         this.max_capacity_per_trip = max_capacity_per_trip;
     }
 
+    public void countCapacity(){
+        if(max_capacity_per_trip>0){
+            max_capacity_per_trip--;
+        }
+    }
+
 }
